@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SLotus.dsms.mapper.TDrugInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.SLotus.dsms.entity.TDrugInfo">
+        <id column="DRUG_ID" property="drugID"/>
+        <result column="DRUG_NAME" property="drugName"/>
+        <result column="IS_OTC" property="isOTC"/>
+        <result column="DRUG_CLASSIFY" property="drugClassify"/>
+        <result column="DRUG_FUNCTION" property="drugFunction"/>
+        <result column="CREATED_TIME" property="createdTime"/>
+        <result column="UPDATED_TIME" property="updatedTime"/>
+    </resultMap>
+
+</mapper>

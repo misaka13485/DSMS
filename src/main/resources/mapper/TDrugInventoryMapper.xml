@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SLotus.dsms.mapper.TDrugInventoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.SLotus.dsms.entity.TDrugInventory">
+        <id column="LOCATION_CODE" property="locationCode"/>
+        <result column="DRUG_ID" property="drugID"/>
+        <result column="AMOUNT" property="amount"/>
+    </resultMap>
+
+</mapper>
