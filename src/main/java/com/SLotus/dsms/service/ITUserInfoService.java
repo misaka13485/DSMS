@@ -13,4 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITUserInfoService extends IService<TUserInfo> {
 
+    //验证Token
+    boolean verifyToken(String userID, String token);
+
 }

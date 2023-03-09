@@ -1,4 +1,3 @@
-
 spring:
   application:
     name: dsms
@@ -8,6 +7,11 @@ spring:
     username: vue
     password: vue123123
     url: jdbc:oracle:thin:@81.70.160.170:1521:vue
+
+  #修复Swagger2空指针异常问题
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 #服务器端口
 server:
   port: 8080
@@ -18,4 +22,6 @@ mybatis:
   type-aliases-package:
     com.SLotus.dsms.mybatis.entity
 
+swagger:
+  enable: true
 

@@ -16,4 +16,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/t-drug-inventory")
 public class TDrugInventoryController {
 
+
 }
