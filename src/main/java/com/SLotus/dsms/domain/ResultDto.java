@@ -23,10 +23,25 @@ public class ResultDto<T> {
         this.msg = msg;
     }
 
+    /**
+     * 成功返回
+     *
+     * @param data 数据
+     */
     public ResultDto(T data) {
         this.code = 200;
         this.msg = "success";
         this.data = data;
+    }
+
+    /**
+     * 发生异常返回
+     *
+     * @return
+     */
+    public ResultDto(Exception e, String msg) {
+        this.code = 500;
+        this.msg = msg + e.getMessage();
     }
 
     public int getCode() {

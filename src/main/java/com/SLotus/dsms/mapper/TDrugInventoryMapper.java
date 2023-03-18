@@ -13,4 +13,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface TDrugInventoryMapper extends BaseMapper<TDrugInventory> {
 
+    /**
+     * 根据ID获取库存并锁定
+     */
+    TDrugInventory selectByIdForUpdate(String id);
+
 }

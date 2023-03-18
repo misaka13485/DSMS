@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2023-03-08
  */
 @Slf4j
-@WebFilter(urlPatterns = "/*", filterName = "logFilter")
+@WebFilter(urlPatterns = "/api/*", filterName = "logFilter")
 @Order(1)
 public class LogInterceptor implements Filter {
     @Override

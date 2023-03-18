@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 
 /**
@@ -18,7 +19,7 @@ import java.io.IOException;
  */
 @Slf4j
 @Order(2)
-@WebFilter(urlPatterns = "/*", filterName = "authFilter")
+@WebFilter(urlPatterns = "/api/*", filterName = "authFilter")
 public class AuthInterceptor implements Filter {
     @Autowired
     private ITUserInfoService userInfoService;
@@ -29,13 +30,26 @@ public class AuthInterceptor implements Filter {
 
     }
 
+    //URI白名单
+    private final String[] whiteList = {
+            "/Swagger-resources",
+            "/swagger-ui.html",
+            "/v2/api-docs",
+            "/webjars/springfox-swagger-ui",
+            "/t-user-info/login",
+            "/t-user-info/register",
+            "/t-user-info/verify"
+    };
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         //如果是登录请求，放行
-        if (((HttpServletRequest) servletRequest).getRequestURI().equals("/t-user-info/login")) {
+        String uri = ((HttpServletRequest) servletRequest).getRequestURI();
+        if (Arrays.asList(whiteList).stream().anyMatch(uri::contains)) {
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }
+
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse) servletResponse;
         String userID = req.getHeader("userID");

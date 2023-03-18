@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
  * @since 2023-03-08
  */
 @RestController
-@RequestMapping("/t-user-info")
+@RequestMapping("/api/t-user-info")
 @Api(tags = "用户相关接口")
 public class TUserInfoController {
     @Autowired
