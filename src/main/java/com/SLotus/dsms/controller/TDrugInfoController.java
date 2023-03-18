@@ -60,7 +60,7 @@ public class TDrugInfoController {
     //列表展示(分页)
     @GetMapping("/page")
     @ApiOperation(value = "列表展示(分页)", notes = "列表展示(分页)")
-    public ResultDto<List<TDrugInfo>> page(@ApiParam(name = "页数") Integer pageNum, @ApiParam(name = "每页数量") Integer pageSize) {
+    public ResultDto<List<TDrugInfo>> page(@ApiParam(name = "页数", example = "0") Integer pageNum, @ApiParam(name = "每页数量", example = "0") Integer pageSize) {
         try {
             return new ResultDto<>(tDrugInfoService.page(new Page<>(pageNum, pageSize)).getRecords());
         } catch (Exception e) {

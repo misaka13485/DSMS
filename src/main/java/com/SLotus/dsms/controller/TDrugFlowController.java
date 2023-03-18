@@ -39,8 +39,8 @@ public class TDrugFlowController {
      */
     @GetMapping("/getDrugFlow")
     @ApiOperation(value = "查看流水(分页)", notes = "查看流水(分页)")
-    public ResultDto<Page<TDrugFlow>> getDrugFlow(@RequestParam @ApiParam(name = "页码") Integer pageNum,
-                                                  @RequestParam @ApiParam(name = "每页数量") Integer pageSize) {
+    public ResultDto<Page<TDrugFlow>> getDrugFlow(@RequestParam @ApiParam(name = "页码", example = "0") Integer pageNum,
+                                                  @RequestParam @ApiParam(name = "每页数量", example = "0") Integer pageSize) {
         try {
             return new ResultDto<>(tDrugFlowService.page(new Page<>(pageNum, pageSize)));
         } catch (Exception e) {

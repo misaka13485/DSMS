@@ -72,14 +72,14 @@ public class TDrugInventoryController {
      */
     @PostMapping("/outDrugInventory")
     @ApiOperation(value = "出库", notes = "出库")
-    public ResultDto outDrugInventory(@RequestParam @ApiParam(name = "药品ID") String drugID,
-                                      @RequestParam @ApiParam(name = "出库数量") Integer outNum) {
+    public ResultDto<?> outDrugInventory(@RequestParam @ApiParam(name = "药品ID") String drugID,
+                                         @RequestParam @ApiParam(name = "出库数量", example = "0") Integer outNum) {
         try {
             boolean outDrugInventory = tDrugInventoryService.outDrugInventory(drugID, outNum);
             if (outDrugInventory) {
-                return new ResultDto(200, "出库成功");
+                return new ResultDto<>(200, "出库成功");
             } else {
-                return new ResultDto(500, "出库失败");
+                return new ResultDto<>(500, "出库失败");
             }
         } catch (BusinessException e) {
             log.error("出库失败:{}", e.getMessage());
@@ -99,14 +99,14 @@ public class TDrugInventoryController {
      */
     @PostMapping("/inDrugInventory")
     @ApiOperation(value = "入库", notes = "入库")
-    public ResultDto inDrugInventory(@RequestParam @ApiParam(name = "药品ID") String drugID,
-                                     @RequestParam @ApiParam(name = "入库数量") Integer inNum) {
+    public ResultDto<?> inDrugInventory(@RequestParam @ApiParam(name = "药品ID") String drugID,
+                                        @RequestParam @ApiParam(name = "入库数量", example = "0") Integer inNum) {
         try {
             boolean inDrugInventory = tDrugInventoryService.inDrugInventory(drugID, inNum);
             if (inDrugInventory) {
-                return new ResultDto(200, "入库成功");
+                return new ResultDto<>(200, "入库成功");
             } else {
-                return new ResultDto(500, "入库失败");
+                return new ResultDto<>(500, "入库失败");
             }
         } catch (BusinessException e) {
             log.error("入库失败:{}", e.getMessage());
